@@ -1,0 +1,138 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Social Network Prototype</title>
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/fbcustom.css" rel="stylesheet">
+ <link href="/css/fblogin.css" rel="stylesheet">
+    <script src="/js/jquery.min.js"></script>
+	<script type="text/javascript" src="/js/angular.min.js"></script>
+	<script type="text/javascript" src="/js/login.js"></script>
+
+
+ </head>
+ 
+  <body ng-app ="loginApp">
+    <div id="wrap">
+      <div class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Social Network Prototype</a>
+          </div>
+   <div class="collapse navbar-collapse" ng-controller ="loginController">
+           <form class="navbar-form navbar-right" id="header-form" role="form">
+   <div class="lt-left">
+   <div class="form-group">
+ <label for="">Email or Phone</label><br>
+ <input type="email" class="form-control input-sm" id="" ng-model ="user.email" placeholder="Email or Phone" required>
+   </div>
+   <div class="form-group">
+ <label for="">Password</label><br>
+ <input type="password" class="form-control input-sm" id="" ng-model ="user.password" placeholder="Password">
+   </div>
+   <div class="checkbox">
+   
+ <label>
+   
+ </label>
+   </div>
+   </div>
+   <div class="lt-right">
+ <button type="submit" class="login-btn" ng-click="authenticate(user)">Login</button>
+   </div>
+ </form>
+ 
+          </div>
+        </div>
+		<div class="alert alert-danger" id="danger-alert" style="display:none">
+		
+
+   <center> <strong>Login Failed!  </strong>
+    Please check your ID/ Password.</center>
+</div>
+<div class="alert alert-success" id="success-alert" style="display:none">
+		
+
+   <center> <strong>Registration Successfull! </strong>
+    Please login with you ID & Password.</center>
+</div>
+      </div>
+	
+      <div class="container" id="home">
+ <div class="row">
+ <div class="col-md-7">
+ <h3 class="slogan">
+ ?* your caption here */
+ </h3>
+ <img src="image.png" class="img-responsive" />
+ </div>
+ <div class="col-md-5" ng-controller ="registerController">
+ <form class="form" role="form" >
+ <legend><a>Create your account</a></legend>
+            <h4>It's free and always will be.</h4>
+            <div class="row">
+			
+                <div class="col-xs-6 col-md-6">
+				<div class="form-group">
+                    <input class="form-control input-lg" id="firstname" name="firstname" placeholder="First Name" ng-model="register.firstname"type="text" autofocus required />
+                </div>
+				</div>
+
+                <div class="col-xs-6 col-md-6">
+				<div class="form-group">
+                    <input class="form-control input-lg" id="lastname" name="lastname" placeholder="Last Name" ng-model="register.lastname"type="text" />
+					</div>
+                </div>
+            </div>
+           <div class="form-group"> <input class="form-control input-lg" id="email" name="email" placeholder="Your Email" ng-model="register.email" type="email" required /></div>
+           <div class="form-group"> <input class="form-control input-lg" id="reemail" name="reenteremail" placeholder="Re-enter Email"  type="email" required /></div>
+           <div class="form-group"> <input class="form-control input-lg" id="password" name="password" placeholder="Password" type="password" ng-model="register.password" required /></div>
+            <label for="">
+                Date of Birth</label>
+            <div class="row">
+			<div class="form-group">
+                <div class="col-xs-12 col-md-12">
+                    <input type="date" name = "dob" id="dob" ng-model="register.dob" class="form-control input-lg" />
+                </div>
+                
+				</div>
+            </div>
+			<div class="form-group">
+            <label class="radio-inline">
+                <input type="radio" name="sex" id="" ng-model="register.sex" value="Male" />
+                Male
+            </label>
+            <label class="radio-inline">
+                <input type="radio" name="sex" id="" ng-model="register.sex" value="Female" />
+                Female
+            </label>
+			</div>
+            
+ <span class="help-block">By clicking Create my account, you agree to our Terms and that you have read our Data Use Policy, including our Cookie Use.</span>
+            <button class="btn btn-lg btn-primary btn-block signup-btn" type="submit" ng-click="registerUser(register)">
+                Create my account</button>
+            </form>
+ 
+ </div>
+ </div>
+      </div>
+    </div>
+ 
+    <div id="footer">
+      <div class="container">
+        <p class="text-muted credit"><a href="#">Social Network Prototype</a></p>
+      </div>
+    </div>
+ 
+ 
+    <script src="/js/bootstrap.js"></script>
+  </body>
+</html>

@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+    <!--[if IE 9 ]><html class="ie9"><![endif]-->
+<head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Social Network Prototype</title>
+    
+        <!-- Vendor CSS -->
+        <link href="vendors/bower_components/animate.css/animate.min.css" rel="stylesheet">
+
+        <link href="vendors/bower_components/material-design-iconic-font/dist/css/material-design-iconic-font.min.css" rel="stylesheet">
+
+         <script type="text/javascript" src="/js/angular.min.js"></script>
+        <script type="text/javascript" src="/js/updateProfile.js"></script>
+
+
+    <!-- CSS -->
+        <link href="css/app.min.1.css" rel="stylesheet">
+        <link href="css/app.min.2.css" rel="stylesheet">
+    </head>
+    
+    <body ng-app ="updateProfile">
+    <header id="header">
+        <ul class="header-inner">
+            <li id="menu-trigger" data-trigger="#sidebar">
+                <div class="line-wrap">
+                    <div class="line top"></div>
+                    <div class="line center"></div>
+                    <div class="line bottom"></div>
+                </div>
+            </li>
+
+            <li class="logo hidden-xs">
+                <a href="wall.html">THE Social Network Prototype</a>
+            </li>
+
+            <li class="pull-right">
+                <ul class="top-menu">
+
+
+                    <li class="dropdown">
+                        <a class="tm-notification"  href="wall.html">    </a>
+
+                    </li>
+
+                    <li class="dropdown hidden-xs">
+                        <a class="tm-task" href="viewRequest.html"></a>
+
+                    </li>
+                </ul>
+            </li>
+        </ul>
+
+
+
+    </header>
+        
+        <section id="main" ng-controller ="profileUpdater" ng-init = "getData()">
+            <aside id="sidebar">
+                <div class="sidebar-inner c-overflow">
+                    <div class="profile-menu">
+                        <a href="#">
+                            <div class="profile-pic">
+                                <img src="img/profile-pics/dp.jpg" alt="">
+                            </div>
+
+                            <div class="profile-info">
+                                {{localItem}}
+
+                                <i class="zmdi zmdi-arrow-drop-down"></i>
+                            </div>
+                        </a>
+
+                    </div>
+
+
+                    <ul class="main-menu">
+                        <li>
+                            <a href="myProfile.html"><i class="zmdi zmdi-account"></i> View Profile</a>
+                        </li>
+                        <li>
+                            <a href="updateProfile.html"><i class="zmdi zmdi-account-add"></i> Update Profile</a>
+                        </li>
+
+                        <li>
+                            <a href=""onclick="logout()"><i class="zmdi zmdi-time-restore"></i> Logout</a>
+                        </li>
+                    </ul><hr/>
+                    <ul class="main-menu">
+                        <li><a href="wall.html"><i class="zmdi zmdi-home"></i> Home</a></li>
+
+
+                        <li><a href="myFriends.html"><i class="zmdi zmdi-accounts"></i> Friends</a></li>
+                        <li><a href="viewRequest.html"><i class="zmdi zmdi-notifications-add  "></i> View Friend request</a></li>
+
+                        <li class="sub-menu">
+                            <a href=""><i class="zmdi zmdi-widgets"></i> Groups</a>
+
+                            <ul>
+                                <li><a href="createGroup.html">Create Group</a></li>
+                                <li><a href="myGroups.html">My Groups</a></li>
+
+
+                            </ul>
+                        </li>
+
+
+                    </ul>
+					 
+                </div>
+            </aside>
+            
+        
+            <section id="content">
+
+                <div class="container wall" >
+
+                    <div class="block-header">
+                        <h2 >UPDATE PROFILE<small></small></h2>
+
+                        <div class="alert alert-success col-md-10" id="success-alert" style="display: none ">
+
+                           <center> <strong> Your Profile has been updated! </strong></center>
+
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-10">
+
+							
+							 <div class="card">
+                                <div class="card-header">
+                                  <h2><div class ="zmdi zmdi-assignment-account"></div>Profile Information</h2>
+                                </div>
+                                <hr/>
+                                <div class="card-body card-padding">
+
+                                         
+                                    
+                                    
+                                    <ul class="wall-attrs clearfix list-inline list-unstyled">
+
+                                       <p> <h5>About</h5> <div class="form-group">
+                                        <div class="fg-line">
+                                            <textarea ng-model="profile.about" class="form-control auto-size" placeholder="Write about you!.">{{profile.about}}</textarea>
+                                        </div>
+                                    </div></p>
+                                    <p><h5>Interests </h5>
+                                        <div class="form-group">
+                                            <div class="fg-line">
+                                                <input type="text" ng-model="profile.interest" class="form-control" placeholder="Interests" />
+                                            </div>
+                                        </div></p>
+                                        <p><h5>Studied at </h5>
+                                        <div class="form-group">
+                                            <div class="fg-line">
+                                                <input type="text" ng-model="profile.education" class="form-control" placeholder="">
+                                            </div>
+                                        </div></p>
+                                        <p><h5>Works at  </h5>
+                                        <div class="form-group">
+                                            <div class="fg-line">
+                                                <input type="text" ng-model="profile.work" class="form-control" placeholder="">
+                                            </div>
+                                        </div></p>
+                                        <p><h5>Relationship Status </h5>
+                                        <div class="form-group">
+                                            <div class="fg-line">
+                                                <input type="text" ng-model="profile.relationship" class="form-control" placeholder="">
+                                            </div>
+                                        </div></p>
+
+
+                                          <li class="wa-stats">
+                                           <a href="#content"> <button class="btn btn-sm btn-primary" ng-click="updateData(profile);">Update</button></a>
+                                        </li>
+                                    </ul>    
+                                </div>
+                                
+
+                            </div>
+                       
+                
+                         
+                        </div> <!-- End of Time LINE!! -->
+                        
+
+                    </div>
+                </div>
+				
+
+            </section>
+        </section>
+        
+        <footer id="footer">
+            Copyright &copy; 2015 The Social Network Prototype
+            
+            <ul class="f-menu">
+                <li><a href="wall.html">Home</a></li>
+
+            </ul>
+        </footer>
+
+        <script src="vendors/bower_components/jquery/dist/jquery.min.js"></script>
+        <script src="vendors/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+        
+
+        <script src="vendors/bower_components/Waves/dist/waves.min.js"></script>
+        <script src="vendors/bootstrap-growl/bootstrap-growl.min.js"></script>
+            
+
+        
+        
+        
+        <script src="js/functions.js"></script>
+        <script src="js/demo.js"></script>
+    
+    
+    </body>
+
+</html>
