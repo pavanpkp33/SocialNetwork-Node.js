@@ -2,7 +2,6 @@ Welcome to the SocialNetwork- Node js wiki!
 
 ***
 
-![Mpower Logo](http://pavankp.website/mPower_black.png)
 
 # Social Networking Application similar to facebook; includes basic social networking functionalities.
 
